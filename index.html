@@ -1128,10 +1128,23 @@
 <body>
 
 <!-- BANNER DEMO -->
-<div id="demo-top-banner" style="background:linear-gradient(135deg,#B8860B,#D4AF37);padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;color:#080C10;letter-spacing:.05em;text-transform:uppercase;box-shadow:0 2px 10px rgba(184,134,11,.35);position:relative;z-index:600;">
+<div id="demo-top-banner" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#B8860B,#D4AF37);padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;color:#080C10;letter-spacing:.05em;text-transform:uppercase;box-shadow:0 2px 10px rgba(184,134,11,.35);">
   <span>🔧 Web de demostración — Se personaliza completamente con los datos de tu taller en menos de 7 días</span>
-  <button onclick="document.getElementById('demo-top-banner').style.display='none'" style="background:rgba(0,0,0,.15);border:none;color:#080C10;cursor:pointer;font-size:16px;font-weight:900;padding:0 8px;border-radius:3px;line-height:1.4;margin-left:4px;">✕</button>
+  <button id="demo-banner-close" style="background:rgba(0,0,0,.15);border:none;color:#080C10;cursor:pointer;font-size:16px;font-weight:900;padding:0 8px;border-radius:3px;line-height:1.4;margin-left:4px;">✕</button>
 </div>
+<script>
+(function(){
+  var banner = document.getElementById('demo-top-banner');
+  var nav    = document.getElementById('mainNav');
+  if(!banner || !nav) return;
+  var bh = banner.offsetHeight;
+  nav.style.top = bh + 'px';
+  document.getElementById('demo-banner-close').addEventListener('click', function(){
+    banner.style.display = 'none';
+    nav.style.top = '0';
+  });
+})();
+</script>
 <div id="scroll-bar"></div>
 
 <!-- COOKIE BANNER -->
