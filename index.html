@@ -1132,19 +1132,6 @@
   <span>🔧 Web de demostración — Se personaliza completamente con los datos de tu taller en menos de 7 días</span>
   <button id="demo-banner-close" style="background:rgba(0,0,0,.15);border:none;color:#080C10;cursor:pointer;font-size:16px;font-weight:900;padding:0 8px;border-radius:3px;line-height:1.4;margin-left:4px;">✕</button>
 </div>
-<script>
-(function(){
-  var banner = document.getElementById('demo-top-banner');
-  var nav    = document.getElementById('mainNav');
-  if(!banner || !nav) return;
-  var bh = banner.offsetHeight;
-  nav.style.top = bh + 'px';
-  document.getElementById('demo-banner-close').addEventListener('click', function(){
-    banner.style.display = 'none';
-    nav.style.top = '0';
-  });
-})();
-</script>
 <div id="scroll-bar"></div>
 
 <!-- COOKIE BANNER -->
@@ -2799,5 +2786,21 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   frame();
 })();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var banner = document.getElementById('demo-top-banner');
+  var nav    = document.getElementById('mainNav');
+  var hero   = document.querySelector('.hero');
+  if(!banner || !nav) return;
+  var bh = banner.offsetHeight;
+  nav.style.top = bh + 'px';
+  if(hero) hero.style.paddingTop = (100 + bh) + 'px';
+  document.getElementById('demo-banner-close').addEventListener('click', function(){
+    banner.style.display = 'none';
+    nav.style.top = '0';
+    if(hero) hero.style.paddingTop = '100px';
+  });
+});
 </script></body>
 </html>
