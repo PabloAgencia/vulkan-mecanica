@@ -1,0 +1,18 @@
+name: Deploy a Cloudflare Pages
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy a Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 8805ab4e3e430ec0e4a0ca8142402f00
+          command: pages deploy . --project-name=vulkan-mecanica --branch=master
