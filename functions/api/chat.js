@@ -1,18 +1,18 @@
-﻿// ============================================
+// ============================================
 // CONFIGURACIÓN DEL NEGOCIO — EDITAR SOLO ESTO
 // ============================================
 const NEGOCIO = {
-  nombre: "[NOMBRE_TALLER]",
+  nombre: "Talleres Martínez",
   tipo: "taller mecánico multimarca",
-  ciudad: "[CIUDAD]",
-  direccion: "[DIRECCION]",
-  telefono: "[TELEFONO]",
-  telefono2: "[TELEFONO]",
-  whatsapp: "[WHATSAPP_SIN_+]",
-  email: "[EMAIL_TALLER]",
-  horario: "[HORARIO]",
-  maps: "[URL_GOOGLE_MAPS]",
-  valoracion: "[X,X sobre 5 con más de XXX reseñas en Google]",
+  ciudad: "Madrid",
+  direccion: "Calle Arturo Soria, 48, 28027 Madrid",
+  telefono: "612 34 56 78",
+  telefono2: "612 34 56 78",
+  whatsapp: "34612345678",
+  email: "info@talleresmartinez.es",
+  horario: "L-V 8:00-14:00 y 15:30-19:00. Sábado 9:00-13:00. Domingo cerrado.",
+  maps: "https://maps.google.com/maps?q=Calle+Arturo+Soria,+48,+Madrid",
+  valoracion: "4,8 sobre 5 con más de 120 reseñas en Google",
   servicios: `- Diagnóstico profesional
 - Mantenimiento y revisiones
 - Frenos: reparación y servicio completo
