@@ -1,14 +1,14 @@
-// ============================================
+﻿// ============================================
 // CONFIGURACIÓN DEL NEGOCIO — EDITAR SOLO ESTO
 // ============================================
 const NEGOCIO = {
   nombre: "Vulkan Mecánica",
   tipo: "taller mecánico multimarca",
-  ciudad: "tu ciudad",
-  direccion: "Tu dirección aquí",
-  telefono: "900 000 000",
-  telefono2: "900 000 000",
-  whatsapp: "34900000000",
+  ciudad: "Coslada, Madrid",
+  direccion: "Calle de la Industria, 12, 28821 Coslada, Madrid",
+  telefono: "651 23 45 67",
+  telefono2: "651 23 45 67",
+  whatsapp: "34651234567",
   email: "info@vulkanmecanica.com",
   horario: "L-V 8:00-13:00 y 15:00-18:30. Sábados 9:00-13:00. Domingos cerrado.",
   maps: "https://maps.google.com",
