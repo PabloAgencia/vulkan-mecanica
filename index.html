@@ -1200,8 +1200,8 @@
   </div>
   <div class="hero-stats">
     <div class="hstat">
-      <span class="hstat-num">6</span>
-      <span class="hstat-label">Servicios disponibles</span>
+      <span class="hstat-num">&#x221E;</span>
+      <span class="hstat-label">Marcas · Multimarca</span>
     </div>
     <div class="hstat hstat-mid">
       <span class="hstat-num">4,9★</span>
@@ -2211,7 +2211,6 @@
   var statEls = document.querySelectorAll('.hstat-num');
   if (!statEls.length || !window.IntersectionObserver) return;
   var stats = [
-    [statEls[0], 0, 6, '+'],
     [statEls[2] || null, 0, 100, '+']
   ];
   function animCount(s) {
@@ -2281,25 +2280,53 @@
   });
 })();
 
-// ── Typewriter on hero highlight ──
+// ── Rotador de frases hero ──
 (function() {
   var el = document.getElementById('tw-target');
   if (!el) return;
-  var text = el.textContent;
-  el.textContent = '';
+  var phrases = [
+    'hoy mismo.',
+    'como nuevo.',
+    'sin sorpresas.',
+    'en buenas manos.',
+    'con garantía.'
+  ];
+  var current = 0;
   var cursor = document.createElement('span');
   cursor.className = 'tw-cursor';
-  el.appendChild(cursor);
-  var i = 0;
-  setTimeout(function type() {
-    el.textContent = text.slice(0, i);
+
+  function typePhrase(text, onDone) {
+    el.textContent = '';
     el.appendChild(cursor);
-    if (i < text.length) {
-      i++;
-      setTimeout(type, i < 3 ? 90 : 58);
-    } else {
-      setTimeout(function() { cursor.style.display = 'none'; }, 2200);
-    }
+    cursor.style.display = 'inline-block';
+    var i = 0;
+    (function type() {
+      el.textContent = text.slice(0, i);
+      el.appendChild(cursor);
+      if (i < text.length) { i++; setTimeout(type, i < 3 ? 85 : 52); }
+      else { setTimeout(onDone, 6200); }
+    })();
+  }
+
+  function erasePhrase(onDone) {
+    cursor.style.display = 'inline-block';
+    var text = el.textContent;
+    var i = text.length;
+    (function erase() {
+      el.textContent = text.slice(0, i);
+      el.appendChild(cursor);
+      if (i > 0) { i--; setTimeout(erase, 36); }
+      else { setTimeout(onDone, 320); }
+    })();
+  }
+
+  function cycle() {
+    current = (current + 1) % phrases.length;
+    typePhrase(phrases[current], function() { erasePhrase(cycle); });
+  }
+
+  setTimeout(function() {
+    typePhrase(phrases[0], function() { erasePhrase(cycle); });
   }, 850);
 })();
 
